@@ -1,0 +1,30 @@
+
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{super()}}
+
+<link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+{% endblock %}
+
+{% block content %}
+
+            <form class="form" action="{{ url_for('login') }}" method='post'>
+              <div class="input-group">
+                <input type="text" name='username' class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group">
+                <input type="password"  name='password' class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+              </div>
+
+              <div class='login-buttons'>
+                <input class="btn btn-primary" type="submit" value="Login">
+                <a class="btn btn-primary" href="{{ url_for('register') }}" role="button">Register</a> 
+              </div>
+            </form>
+
+       
+            {% if error %}
+            <p>{{ error }}</p>
+            {% endif %}
+{% endblock %}

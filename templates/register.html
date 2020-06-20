@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    
+	        <form class="form-inline" action="{{ url_for('success') }}" method='post'>
+              <div class="input-group">
+                  <input type="text" class="form-control" name='FirstName' placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name='LastName' placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group">
+                <input type="text" class="form-control" name='username' placeholder="Username" aria-describedby="basic-addon1">
+                <input type="password" class="form-control" name='password' placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+              </div>
+
+              <div class='input-group-button'>
+                <button class="btn btn-primary">Book Flight</button>
+              </div>
+
+              <a class="btn btn-primary" href="{{ url_for('index') }}" role="button">Cancel</a> 
+            </form>
+                         
+{% endblock %}

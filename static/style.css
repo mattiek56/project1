@@ -1,0 +1,20 @@
+body {
+	text-align: center;
+	padding-top: 40px;
+}
+
+.form {
+	display: inline-grid;
+	margin-top: 30vh;
+	width: 20%;
+
+}
+
+.input-group {
+	padding-bottom: 5%;
+}
+
+.btn {
+	width: -webkit-fill-available;
+	margin-bottom: 3%!important;
+}
