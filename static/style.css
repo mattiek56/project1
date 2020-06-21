@@ -3,9 +3,15 @@ body {
 	padding-top: 40px;
 }
 
+.register-form {
+	display: inline-grid;
+	margin-top: 2vh!important;
+	width: 40%;
+}
+
 .form {
 	display: inline-grid;
-	margin-top: 30vh;
+	margin-top: 10vh;
 	width: 20%;
 
 }
@@ -18,3 +24,29 @@ body {
 	width: -webkit-fill-available;
 	margin-bottom: 3%!important;
 }
+
+.name {
+	display: inline-block;
+}
+
+.error {
+	color: red;
+}
+
+@media only screen  and (min-width :720px) {
+
+
+	.register-form {
+		display: inline-grid;
+		margin-top: 2vh!important;
+		width: 60%;
+}
+
+	.form {
+		display: inline-grid;
+		margin-top: 10vh;
+		width: 40%;
+
+}
+}
+
