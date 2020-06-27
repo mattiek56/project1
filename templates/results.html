@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class='container-fluid'>
+    <h2> Search Results </h2>
+    {% for result in results %}
+     <div class="card" style="width: 18rem;">
+  		<img class="card-img-top" src="static/placeholder.png" alt="Card image cap">
+  			<div class="card-body">
+    		<h5 class="card-title">{{ result.title }}</h5>
+    		<p class="card-text">{{ result.isbn }}</p>
+    		<p class="card-text">{{ result.author }}</p>
+    		<p class="card-text">{{ result.year }}</p>
+    		<a href="{{ url_for('book', book_id=result.id) }}" method="GET" class="btn btn-primary">Go somewhere</a>
+  		</div>
+	</div>
+      {% endfor %}
+
+{% endblock %}

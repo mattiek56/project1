@@ -7,4 +7,11 @@ CREATE TABLE users (
 
 );
 
+CREATE TABLE reviews (
+	id SERIAL PRIMARY KEY,
+	book_id INT NOT NULL,
+	user_id INT NOT NULL,
+	rating INT NOT NULL,
+	review VARCHAR, 
+)
 INSERT INTO users (id, firstName, lastName, username, password) VALUES (Mattie, Krop, mattiek, testing)

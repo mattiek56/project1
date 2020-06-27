@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class='container-fluid'>
+    <h2> {{ book.title }} </h2>
+    <h4> Author:{{ book.author }} <h4>
+    <h4> Publication: {{ book.year }}</h4>
+    <h4> ISBN: {{ book.isbn }} </h4>
+    
+    {% for item in results %}
+    	<p>{{ item.review }}</p>
+    	<p> {{ item.rating }}</p>
+    	<p>{{ item.username }}</p>
+ 	{% endfor %}
+   
+   	
+   	<h3>Goodreads Average Rating: {{ gd_review_book.average_rating }} </h3>
+   	<h3> Goodreads Reviews: {{ gd_review_book.work_ratings_count }}
+	</div>
+
+   <form class="form-inline" method='POST'>
+              <input class="form-control mr-sm-2" type="text" name ='review' placeholder="Submit a Review" aria-label="Submit a Review">
+              <input class="form-control mr-sm-2" type="text" name ='rating' placeholder="Submit a Rating" aria-label="Submit a Rating">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+             
+    </form>     
+{% endblock %}
