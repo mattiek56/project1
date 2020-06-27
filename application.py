@@ -1,5 +1,5 @@
 import os
-from flask import Flask, session, render_template, url_for, request, redirect, flash
+from flask import Flask, session, render_template, url_for, request, redirect, flash, jsonify
 from sqlalchemy import create_engine
 from flask_session import Session
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -48,7 +48,7 @@ FLASK_DEBUG = 1
 def index():
     return render_template("index.html")
 
-@app.route("/login", methods=["POST", "GET"])
+@app.route("/home", methods=["POST", "GET"])
 def login():
 	""" Log user in """ 
 	session.clear()
@@ -56,9 +56,9 @@ def login():
 	password = request.form.get('password')
 
 	if not password:
-		return render_template('index.html', password_error='Need password')
+		return render_template('index.html', password_error='Please input a password!')
 	elif not username:
-		return render_template('index.html', user_error='Need username')	
+		return render_template('index.html', user_error='Please input a username!')	
 
 	#user = Users.query.filter_by(username=request.form.get('username')).first()
 	#if db.execute("SELECT * FROM registeredusers WHERE username = :username AND password = :password", {"username": username, "password": password}).rowcount == 0:
@@ -78,7 +78,7 @@ def login():
 		#	flash("Login Succesful")
 		#	return render_template('home.html')
 
-		return render_template('index.html', error='Invalid user or pass')
+		return render_template('index.html', error='Sorry! It appears you have an invalid username or password.')
 	
 	
 	
@@ -176,3 +176,25 @@ def sign_out():
 
     logout_user()
     return redirect(url_for('index'))	
+
+@app.route("/api/<isbn>", methods=["GET"])
+def book_api(isbn):
+	api = db.execute("SELECT title, author, year, isbn, COUNT(reviews.id) as review_count, AVG(reviews.rating) as review_average FROM books INNER JOIN reviews ON books.id=reviews.book_id WHERE isbn=:isbn GROUP BY title, author, year, isbn",
+		{"isbn":isbn}).fetchone()
+
+	return jsonify({
+            "title": api.title,
+            "author": api.author,
+            "year": api.year,
+            "isbn": api.isbn,
+         	"review_count": api.review_count,
+         	"average_score": api.review_average,
+        })
+
+
+
+
+
+
+
+

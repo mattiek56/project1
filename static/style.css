@@ -29,11 +29,29 @@ body {
 	display: inline-block;
 }
 
+
+
 .error {
-	color: red;
+	color: black;
+	display: inline-grid;
+	width:20%;
+	background-color: #fcb1ac;
 }
 
-@media only screen  and (min-width :720px) {
+.error_inline {
+	width:100%;
+}
+
+.login-container {
+	margin-top: 5%;
+}
+
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
 
 
 	.register-form {
@@ -45,8 +63,61 @@ body {
 	.form {
 		display: inline-grid;
 		margin-top: 10vh;
-		width: 40%;
+		width: 60%;
 
 }
+	.login-container {
+		margin-top: 20%;
+	}
+
+	.error {
+		width:60%;
+	}
+
+	.error_inline {
+		width: 100%;
+	}
+
 }
+
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+	.register-form {
+		display: inline-grid;
+		margin-top: 2vh!important;
+		width: 60%;
+}
+
+	.form {
+		display: inline-grid;
+		margin-top: 10vh;
+		width: 60%;
+
+}
+	.login-container {
+		margin-top: 0px;
+	}
+
+  }
+
+
+
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+	.form {
+		width: 40%;
+	}
+
+	
+
+}
+
 

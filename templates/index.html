@@ -8,33 +8,35 @@
 {% endblock %}
 
 {% block content %}
-            
+      <div class='login-container'>
         <div class='entry-text'>
-        <h1>Login</h1>
-        
+          <h1>Login</h1>
         </div>
 
-            <form class="form" action="{{ url_for('login') }}" method='post'>
+        <div class='login-form'>
+          <form class="form" action="{{ url_for('login') }}" method='post'>
               <div class="input-group">
                 <input type="text" name='username' class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
               </div>
               {% if user_error %}
-              <p class='error'>{{ user_error }}</p>
+              <p class='error_inline error'>{{ user_error }}</p>
               {% endif %}
               <div class="input-group">
                 <input type="password"  name='password' class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
               </div>
               {% if password_error %}
-              <p class='error'>{{ password_error }}</p>
+              <p class='error_inline error'>{{ password_error }}</p>
               {% endif %}
               <div class='login-buttons'>
                 <input class="btn btn-primary" type="submit" value="Login">
                 <a class="btn btn-primary" href="{{ url_for('register') }}" role="button">Register</a> 
               </div>
             </form>
-
-       
-            {% if error %}
-            <p>{{ error }}</p>
-            {% endif %}
+          </div>
+            <div class='error'>
+              {% if error %}
+                <p> {{ error }}</p>
+              {% endif %}
+            </div>
+          </div>
 {% endblock %}
