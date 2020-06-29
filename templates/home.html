@@ -1,11 +1,28 @@
 {% extends "layout.html" %}
 
-
 {% block content %}
-	
-  <h3> We need to put content here for the home page which is the next part of the project </h3>  
-  {% if error_message %}
-  	<h4> {{ error_message }} </h4>
-  {% endif %}	    
+
+
+<div class='container-fluid'>
+	<div class='row page-header justify-content-center'>
+    	<h2> Explore Readable's Library </h2>
+	</div>
+
+	<div class='row justify-content-center'>
+    {% for book in homeBooks %}
+     <div class="col-lg-3 col-sm-12" style="width: 18rem;">
+  		<img class="title_image" src="http://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg" height="50%" alt="Card image cap">
+  			<div class="card-body">
+    		<h5 class="card-title">{{ book.title }}</h5>
+    		<p class="card-text">{{ book.isbn }}</p>
+    		<p class="card-text">{{ book.author }}</p>
+    		<p class="card-text">{{ book.year }}</p>
+    		<a href="{{ url_for('book', book_id=book.id) }}" method="GET" class="btn btn-primary">More Details</a>
+  		</div>
+	</div> 
+	{% endfor %} 
+  </div>
+</div>
+  
 
 {% endblock %}

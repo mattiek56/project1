@@ -4,23 +4,29 @@
     	{% block head %}
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="{{url_for('.static', filename='layout.css')}}">
+      <link rel="stylesheet" href="{{url_for('.static', filename='home.css')}}">
     	<title>{% block title %}{% endblock %} - Readable </title>
     	{% endblock %}
     </head>
     <body>
 
-        <nav class="navbar navbar-light bg-light justify-content-between">
-          <a class="navbar-brand"> {{ firstName }}</a>
+      
+        <nav class="navbar navbar-dark bg-dark justify-content-between row">
+          <a class="navbar-brand" href="{{ (url_for('index')) }}"> Welcome, {{ userDisplay }}!</a>
             <form class="form-inline" action="{{ url_for('search') }}" method='GET'>
-              <input class="form-control mr-sm-2" type="search" name = 'searchQuery' placeholder="Search:ISBN, Title, Author, Year" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" href="{{ url_for('search') }}">Search</button>
+              <div class='search-agent'>
+                <input id='search-form' class="form-control" type="search" name = 'searchQuery' placeholder="Search:ISBN, Title, Author, Year" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" href="{{ url_for('search') }}">Search</button> 
+              </div>
               <a class="btn btn-outline-success my-2 my-sm-0" type="button" href="{{ (url_for('sign_out')) }}">Logout</a>
             </form>
         </nav>
-    
+  
+
     		{% block content %}{% endblock %}
     
-    
+ 
 
     </body>
     </html>         

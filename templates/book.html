@@ -2,27 +2,47 @@
 
 {% block content %}
 
-<div class='container-fluid'>
-    <h2> {{ book.title }} </h2>
-    <h4> Author:{{ book.author }} <h4>
-    <h4> Publication: {{ book.year }}</h4>
-    <h4> ISBN: {{ book.isbn }} </h4>
-    
-    {% for item in results %}
-    	<p>{{ item.review }}</p>
-    	<p> {{ item.rating }}</p>
-    	<p>{{ item.username }}</p>
- 	{% endfor %}
-   
-   	
-   	<h3>Goodreads Average Rating: {{ gd_review_book.average_rating }} </h3>
-   	<h3> Goodreads Reviews: {{ gd_review_book.work_ratings_count }}
+<div id='bookDetails' class='container-fluid row'>
+	<div class="detail-image col-lg-4">
+		<img class="title_image" src="http://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg" alt="Card image cap">
+	<div class='book-details text-left'>	
+	    <h5> {{ book.title }} </h5>
+	    <h6> Author:{{ book.author }} </h6>
+	    <h6> Publication: {{ book.year }}</h6>
+	    <h6> ISBN: {{ book.isbn }} </h6>
 	</div>
+    </div>
 
-   <form class="form-inline" method='POST'>
-              <input class="form-control mr-sm-2" type="text" name ='review' placeholder="Submit a Review" aria-label="Submit a Review">
-              <input class="form-control mr-sm-2" type="text" name ='rating' placeholder="Submit a Rating" aria-label="Submit a Rating">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
-             
-    </form>     
+    <div class='text-left reviews col-lg-8'>
+
+	    <h5>Goodreads Average Rating: {{ gd_review_book.average_rating}} </h5>
+	   	<h5> Goodreads Reviews: {{ gd_review_book.work_ratings_count }}</h5>
+	   	
+	   	{% if results %}
+		   	<div class='review'>
+		    {% for item in results %}
+		    	<p><strong>{{ item.username }}</strong> says: {{ item.review }}</p>
+		    	<p> {{ item.rating }}</p> 	
+
+		 	{% endfor %}
+		 	</div>
+	 	{% endif %}
+		
+		 	
+
+	   	<form class="form-inline" method='POST'>
+	   		<select name="rating" id="Rating">
+  				<option value="1">1</option>
+  				<option value="2">2</option>
+  				<option value="3">3</option>
+  				<option value="4">4</option>
+  				<option value="5">5</option>
+  			</select>
+	   			
+	            <textarea cols="400" rows="9" id="Review" class="form-control mr-sm-2" type="text" name ='review' placeholder="Submit a Review" aria-label="Submit a Review"></textarea>  
+	            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button> 
+	    </form> 
+    </div>  
+ 
+</div>
 {% endblock %}

@@ -1,6 +1,7 @@
 body {
 	text-align: center;
 	padding-top: 40px;
+	background-color: #A8DADC;
 }
 
 .register-form {
@@ -23,6 +24,13 @@ body {
 .btn {
 	width: -webkit-fill-available;
 	margin-bottom: 3%!important;
+	background-color: #1D3557;
+	color:#F1FAEE;
+}
+
+.btn:hover {
+	background-color: #E63946;
+	
 }
 
 .name {

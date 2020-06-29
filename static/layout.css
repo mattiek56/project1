@@ -1,0 +1,77 @@
+body {
+	background-color: #A8DADC;
+	width: 100vw;
+}
+
+.navbar-brand {
+	margin-left: 2%;
+}
+
+.form-inline {
+	margin-right: 2%;
+}
+.search-agent {
+	width:500px;
+	margin-right: 500px;
+}
+
+
+#search-form {
+	width:80%;
+}
+
+.btn {
+	border-color:#e63946;
+	color:#e63946;
+	background-color: transparent;
+}
+
+.btn:hover {
+	background-color: #e63946;
+	border-color: #e63946;
+}
+
+#resultsClass {
+	width:60%;
+	margin-left: 20vw;
+}
+
+#bookDetails {
+	margin-top: 8%;
+
+}
+
+.text-left {
+	text-align: left;
+}
+
+.detail-image {
+	display: flex;
+}
+
+.book-details {
+	margin-left: 2%;
+}
+.reviews {
+	
+	opacity: 100%;
+	padding: 2%;
+	padding-top: 0px;
+}
+
+.review {
+	background-color: #E2F3F3;
+	padding: 2%;
+	margin-bottom: 2%
+}
+
+#Rating {
+	margin-bottom: 1.5%;
+}
+#Review {
+	margin-bottom: 1.5%
+}
+
+.title_image {
+	height: max-content;
+}
